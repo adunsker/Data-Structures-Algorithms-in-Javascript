@@ -9,17 +9,17 @@ const containsSquared = (arr1, arr2) => {
     // add a count that number's key if it exists or initiate to 1
     counter[squaredValue]
       ? ++counter[squaredValue]
-      : counter[squaredValue] = 1;
+      : (counter[squaredValue] = 1);
   });
 
   // loop through second array and then remove the count from each number
   arr2.forEach((value, i) => {
-    counter[value] ? --counter[value] : counter[value] = -1
+    counter[value] ? --counter[value] : (counter[value] = -1);
   });
 
   // if any value is not equal to zero then return false else return true
-  const counterFin = Object.values(counter)
-  return counterFin.every(value => value == 0)
+  const counterFin = Object.values(counter);
+  return counterFin.every((value) => value == 0);
 };
 
 module.exports = containsSquared;
