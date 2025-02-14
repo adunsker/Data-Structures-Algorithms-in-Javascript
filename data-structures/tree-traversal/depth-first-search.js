@@ -11,7 +11,7 @@ class Tree {
         this.root = null
     }
 
-    depth(val) {
+    depth() {
         let data = []
         function helper(node) {
             data.push(node.val)

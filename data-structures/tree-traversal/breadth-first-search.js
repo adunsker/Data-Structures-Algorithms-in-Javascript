@@ -11,18 +11,17 @@ class Tree {
         this.rool = null
     }
 
-    breadth(val) {
-        let data = []
+    breadth() {
         let node = this.root
-        function helper(node) {
-            data.push(node)
-            if (node.left) {
-                helper(node.left)
-            } else if (node.right) {
-                helper(node.right)
-            }
+        let que = []
+        let visited = []
+        que.push(node)
+        while (que.length) {
+            node = que.shift()
+            visited.push(node.val)
+            if (node.left) que.push(node.left)
+            if (node.right) que.push(node.right)
         }
-        helper(node)
-        return data
+        return visited
     }
 }
