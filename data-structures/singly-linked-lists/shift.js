@@ -12,11 +12,20 @@ class SinglyLinkedList {
         this.length = 0
     }
 
-    shift(val) {
-        if (!this.head) return undefined
-        let newHead = this.head
-        this.head = newHead.next
+    shift() {
+        if (this.length === 0) return undefined
+
+        let oldHead = this.head
+
+        if (!this.head.next) {
+            this.head = null
+            this.tail = null
+        } else {
+            this.head = this.head.next
+        }
+
+        oldHead.next = null
         this.length--
-        return newHead
+        return oldHead
     }
 }
